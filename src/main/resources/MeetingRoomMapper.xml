@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MeetingRoom">
+    <select id="selectMeetingRoom" resultType="com.starry_sky.yang.bean.Room">
+        select * from meeting.meeting_room;
+    </select>
+
+    <update id="updateMeetingRoom">
+        update meeting.meeting_room
+        set start_time=#{start_time},end_time=#{end_time},address=#{address},max_people=#{max_people}
+        where room_id=#{room_id};
+    </update>
+
+    <delete id="delMeetingRoom">
+        delete from meeting.meeting_room where room_id=#{room_id};
+    </delete>
+</mapper>

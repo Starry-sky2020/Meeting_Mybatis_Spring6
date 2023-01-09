@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Staff">
+<select id="selectAllStaff" resultType="map">
+    select staff_phone,staff_name  from staff;
+</select>
+
+<insert id="insertStaffMessage">
+    insert into staff(staff_name, staff_age, staff_phone, staff_address)
+    values (#{staff_name},#{staff_age},#{staff_phone},#{staff_address});
+</insert>
+
+<select id="selectStaffRecord" resultType="com.starry_sky.yang.bean.Staff">
+    select * from staff;
+</select>
+
+<update id="updateStaffRecord">
+    update staff
+    set staff_name=#{staff_name},staff_age=#{staff_age},staff_address=#{staff_address},staff_phone=#{staff_phone}
+    where staff_id=#{staff_id}
+</update>
+
+<delete id="delStaffRecord">
+    delete from staff
+    where staff_id=#{staff_id}
+</delete>
+</mapper>
